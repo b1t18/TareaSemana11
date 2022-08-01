@@ -8,4 +8,4 @@ const alumnoSchema= new Schema({
         Telefono:String
 
 },{versionKey:false});
-module.exports=mongoose.model('alumno',alumnoSchema);
+module.exports=mongoose.model('alumnos',alumnoSchema);

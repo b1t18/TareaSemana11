@@ -7,4 +7,7 @@ router.get('/', (req, res) =>
 {
     res.render('index');
 })
+const alumnoController = require('../controllers/alumnoController');
+//listar
+router.get('/alumno', alumnoController.listar);
 module.exports = router;
