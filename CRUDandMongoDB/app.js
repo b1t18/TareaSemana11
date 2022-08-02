@@ -20,6 +20,8 @@ app.use(notas);
 const cursos = require('./routes/curso');
 app.use(cursos);
 
+const docentes=require("./routes/docentes");
+app.use(docentes);
 
 app.listen(5000, ()=>
 {
