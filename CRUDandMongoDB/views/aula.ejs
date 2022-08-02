@@ -33,9 +33,9 @@
             <% aulas.forEach((aula) => {%>
                 <tr>
                     <td style="display: none;"><%= aula._id%></td>
-                    <td><%= aula.idaula%></td>
-                    <td><%= aula.aula%></td>
-                    <td><%= aula.aforo%></td>
+                    <td><%= aula.IdAula%></td>
+                    <td><%= aula.Aula%></td>
+                    <td><%= aula.Aforo%></td>
                     <td>
                         <a type="button" class="btnEditar btn btn-success">Editar</a>
                         <a href="/eliminar/<%= aula._id%>" class="btn btn-danger">Delete</a>

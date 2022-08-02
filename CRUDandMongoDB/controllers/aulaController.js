@@ -1,5 +1,5 @@
 const { json } = require('express');
-const Aula = require('../model/Aula');
+const Aula = require('../models/Aula');
 
 //metodo para listar datos del aula
 module.exports.listar = (req,res) =>
@@ -12,6 +12,7 @@ module.exports.listar = (req,res) =>
                 message: 'Error de esquema de datos'
             })
         }
+        console.log(aulas)
         return res.render('aula', {aulas:aulas})
     })
 }
@@ -20,9 +21,9 @@ module.exports.listar = (req,res) =>
 module.exports.insertar = (req, res) =>
 {
     const aula = new Aula ({
-        idaula: req.body.aul,
-        aula: req.body.nom,
-        aforo: req.body.afor,
+        IdAula: req.body.aul,
+        Aula: req.body.nom,
+        Aforo: req.body.afor,
     })
     aula.save(function(error, aula)
     {
@@ -40,11 +41,11 @@ module.exports.insertar = (req, res) =>
 //metodo para editar datos del aula
 module.exports.editar = (req,res) => {
     const id = req.body.e_id;
-    const idaula = req.body.e_aul;
-    const aula = req.body.e_nom;
-    const aforo = req.body.e_afor;
+    const IdAula = req.body.e_aul;
+    const Aulas = req.body.e_nom;
+    const Aforo = req.body.e_afor;
     
-    Aula.findByIdAndUpdate(id, {idaula, aula, aforo}, (error,aula) => {
+    Aula.findByIdAndUpdate(id, {IdAula, Aulas, Aforo}, (error,aula) => {
         if (error)
         {
             return res.status(500).json({
