@@ -14,6 +14,10 @@ app.use(alumnos);
 const aulas = require('./routes/aulas');
 app.use(aulas);
 
+const notas = require('./routes/nota');
+app.use(notas);
+
+
 app.listen(5000, ()=>
 {
     console.log('Puerto del servidor es el http://localhost:5000');
