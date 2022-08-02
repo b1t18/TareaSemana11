@@ -1,7 +1,7 @@
 <%- include("templates/cabecera")%>
 <div class="container">
     <div class="shadow-lg pb-3 mb-5 bg-body rounded mt-4">
-        <h2 class="ml-3 text-primary">Datos de Cliente</h2>
+        <h2 class="ml-3 text-primary">Datos de Alumno</h2>
         <br>
         <form action="/insertar" method="post">
             <div class="row">
@@ -50,7 +50,7 @@
                 <td><%= alumno.Correo%></td>
                 <td><%= alumno.Telefono%></td>
                 <td>
-                    <a type="button" class="btn btn-success btnEditar">Editar</a>
+                    <a type="button" class="btnEditara btn btn-success">Editar</a>
                     <a href="/eliminar/<%=alumno._id%>" class="btn btn-danger">Delete</a>
                 </td>
             </tr>
@@ -58,3 +58,47 @@
         </tbody>
     </table>
 </div>
+<!-- The Modal -->
+<div class="modal fade" id="modalAlumno">
+    <div class="modal-dialog">
+      <div class="modal-content">
+      
+        <!-- Modal Header -->
+        <div class="modal-header bg-primary text-white">
+          <h2 class="modal-title ">Editar Alumno</h2>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <!-- Modal body -->
+        <div class="modal-body">
+          <form action="/editar" method="post">
+            <input type="text" id="e_id" name="e_id" class="form-control" hidden>
+            <div class="mb-3">
+                <label for="codigo" >Código:</label>
+                <input type="text" name="e_cod" id="e_cod" class="form-control"d>
+            </div>
+            <div class="mb-3">
+                <label for="codigo"  >Nombre:</label>
+                <input type="text" name="e_nom" id="e_nom" class="form-control" >
+            </div>
+            <div class="mb-3">
+                <label for="codigo" >Apellido:</label>
+                <input type="text" name="e_ape" id="e_ape" class="form-control" >
+            </div>
+            <div class="mb-3">
+                <label for="codigo" >Correo:</label>
+                <input type="email" name="e_cor" id="e_cor" class="form-control" >
+            </div>
+            <div class="mb-3">
+                <label for="telefono" >Teléfono:</label>
+                <input type="number" name="e_tel" id="e_tel" class="form-control" >
+            </div>
+            <!-- Modal footer -->
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-primary">Actualizar</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+</div>
+<script src="js/alumno.js"></script>

@@ -10,4 +10,10 @@ router.get('/', (req, res) =>
 const alumnoController = require('../controllers/alumnoController');
 //listar
 router.get('/alumno', alumnoController.listar);
+//registrar
+router.post('/insertar',alumnoController.insertar);
+//ediatr
+router.post('/editar',alumnoController.editar);
+//eliminar 
+router.get('/eliminar/:id', alumnoController.eliminar);
 module.exports = router;
