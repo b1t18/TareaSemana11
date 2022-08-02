@@ -1,0 +1,85 @@
+<%- include("templates/cabecera.ejs")%>
+<div class="container">
+    <div class="shadow-lg pb-3 mb-5 bg-body rounded mt-4">
+        <h4 class="ml-3">Datos del Aula</h4>
+        <form action="/insertar" method="post">
+            <div class="row">
+                <div class="col-md-2 ml-3">
+                    <label for="idaula" class="form-label">IdAula:</label>
+                    <input type="text" name="aul" id="aul" class="form-control" required>  
+                </div>
+                <div class="col-md-2 ml-3">
+                    <label for="aula" class="form-label">Aula:</label>
+                    <input type="text" name="nom" id="nom" class="form-control" required>  
+                </div>
+                <div class="col-md-2 ml-3">
+                    <label for="aforo" class="form-label">Aforo:</label>
+                    <input type="text" name="afor" id="afor" class="form-control" required>  
+                </div>
+            </div>
+            <button type="submit" class="btn btn-success ml-3 mt-4">Registrar Aula</button>
+        </form>
+    </div>
+    <table class="table table-hover mt-4">
+        <thead>
+            <tr>
+                <td>IdAula</td>
+                <td>Aula</td>
+                <td>Aforo</td>
+                <td>Acciones</td>
+            </tr>
+        </thead>
+        <tbody>
+            <% aulas.forEach((aula) => {%>
+                <tr>
+                    <td style="display: none;"><%= aula._id%></td>
+                    <td><%= aula.idaula%></td>
+                    <td><%= aula.aula%></td>
+                    <td><%= aula.aforo%></td>
+                    <td>
+                        <a type="button" class="btnEditar btn btn-success">Editar</a>
+                        <a href="/eliminar/<%= aula._id%>" class="btn btn-danger">Delete</a>
+                    </td>
+                </tr>
+            <% }) %>    
+        </tbody>
+    </table>
+</div>
+
+<!-- The Modal -->
+<div class="modal fade" id="modalAula">
+    <div class="modal-dialog">
+      <div class="modal-content">
+      
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title">Editar Aula</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        
+        <!-- Modal body -->
+        <div class="modal-body">
+          <form action="/editar" method="post">
+            <input type="text" id="e_id" name="e_id" class="form-control" hidden>
+            <div class="mb-3">
+                <label for="idaula">IdAula:</label>
+                <input type="text" id="e_aul" name="e_aul" class="form-control">
+            </div>
+            <div class="mb-3">
+                <label for="aula">Aula:</label>
+                <input type="text" id="e_nom" name="e_nom" class="form-control">
+            </div>
+            <div class="mb-3">
+                <label for="aforo">Aforo:</label>
+                <input type="text" id="e_afor" name="e_afor" class="form-control">
+            </div>
+            <!-- Modal footer -->
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-primary">Actualizar</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+</div>
+  <script src="js/code.js"></script>

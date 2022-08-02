@@ -11,6 +11,9 @@ app.use(express.static('public'));
 const alumnos=require('./routes/alumnos');
 app.use(alumnos);
 
+const aulas = require('./routes/aulas');
+app.use(aulas);
+
 app.listen(5000, ()=>
 {
     console.log('Puerto del servidor es el http://localhost:5000');
