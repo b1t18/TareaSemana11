@@ -1,0 +1,95 @@
+<%- include("templates/cabecera")%>
+<div class="container">
+    <div class="shadow-lg pb-3 mb-5 bg-body rounded mt-4">
+        <h2 class="ml-3 text-primary">Datos de Curso</h2>
+        <br>
+        <form action="/insertarCurso" method="post">
+            <div class="row">
+                <div class="col-md-2 ml-3">
+                    <label for="codigo" class="form-label" >Código:</label>
+                    <input type="text" name="codigo" id="cod" class="form-control" required>
+                </div>
+                <div class="col-md-2 ml-3">
+                    <label for="codigo" class="form-label" >Curso:</label>
+                    <input type="text" name="curso" id="nom" class="form-control" required>
+                </div>
+                <div class="col-md-2 ml-3">
+                    <label for="codigo" class="form-label" >Credito:</label>
+                    <input type="text" name="credito" id="ape" class="form-control" required>
+                </div>
+                <div class="col-md-2 ml-3">
+                    <label for="codigo" class="form-label" >preRequisito:</label>
+                    <input type="text" name="preRequisito" id="cor" class="form-control" required>
+                </div>
+                
+            </div><button type="submit" class="btn btn-primary ml-3 mt-4">Registrar Curso</button>
+        </form>
+    </div>
+    <table class="table table-hover mt-4">
+        <thead class="bg-primary text-white text-center">
+            <tr>
+                <th>Código</th>
+                <th>Curso</th>
+                <th>Credito</th>
+                <th>PreRequisito</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody class="text-center">
+            <% cursos.forEach((curso) =>{ %>
+            <tr>
+                <td style="display: none;"><%= curso._id%></td>
+                <td><%= curso.IdCurso%></td>
+                <td><%= curso.Curso%></td>
+                <td><%= curso.Creditos%></td>
+                <td><%= curso.PreRequisito%></td>
+                <td>
+                    <a type="button" class="btnEditarCurso btn btn-success">Editar</a>
+                    <a href="/eliminarCurso/<%=curso._id%>" class="btn btn-danger">Delete</a>
+                </td>
+            </tr>
+            <% }) %>
+        </tbody>
+    </table>
+</div>
+<!-- The Modal -->
+<div class="modal fade" id="modalCurso">
+    <div class="modal-dialog">
+      <div class="modal-content">
+      
+        <!-- Modal Header -->
+        <div class="modal-header bg-primary text-white">
+          <h2 class="modal-title ">Editar Alumno</h2>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <!-- Modal body -->
+        <div class="modal-body">
+          <form action="/editarCurso" method="post">
+            <input type="text" id="e_id" name="e_id" class="form-control" hidden>
+            <div class="mb-3">
+                <label for="codigo" >Código:</label>
+                <input type="text" name="e_codigo" id="e_codigo" class="form-control"d>
+            </div>
+            <div class="mb-3">
+                <label for="codigo"  >Curso:</label>
+                <input type="text" name="e_curso" id="e_curso" class="form-control" >
+            </div>
+            <div class="mb-3">
+                <label for="codigo" >Creditos:</label>
+                <input type="text" name="e_credito" id="e_credito" class="form-control" >
+            </div>
+            <div class="mb-3">
+                <label for="codigo" >PreRequisito:</label>
+                <input type="text" name="e_preRequisito" id="e_preRequisito" class="form-control" >
+            </div>
+
+            <!-- Modal footer -->
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-primary">Actualizar</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+</div>
+<script src="js/curso.js"></script>
