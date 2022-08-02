@@ -6,6 +6,5 @@ const alumnoSchema= new Schema({
         Apellidos:String,
         Correo:String,
         Telefono:String
-
 },{versionKey:false});
 module.exports=mongoose.model('alumnos',alumnoSchema);

@@ -41,14 +41,14 @@
             </tr>
         </thead>
         <tbody class="text-center">
-            <% alumnos.forEach((alumno) =>{ %>
+            <% clientes.forEach((cliente) =>{ %>
             <tr>
                 <td style="display: none;"><%= alumno._id%></td>
                 <td><%= alumno.IdAlumno%></td>
                 <td><%= alumno.Nombres%></td>
                 <td><%= alumno.Apellidos%></td>
                 <td><%= alumno.Correo%></td>
-                <td><%= alumno.Telefono%></td>
+                <td><%= alumno.telefono%></td>
                 <td>
                     <a type="button" class="btn btn-success btnEditar">Editar</a>
                     <a href="/eliminar/<%=alumno._id%>" class="btn btn-danger">Delete</a>
